@@ -1,8 +1,20 @@
-#!/usr/bin/env python
-with open('test.dxf', 'r') as f:
-  for line in f:
-    if '$EXTMAX' in line:
-      for line in f:
-        Lines = f.readlines()
-        if '$LIMMIN' in f:
-          '[%s]' % ', '.join(map(str, Lines))
+print("test")
+
+list = []
+with open('test.txt') as f:
+    for line in f:
+        if line.strip()=="$EXTMAX":
+            break
+
+    for line in f:
+        list.append(line)
+
+        if line.strip()=="0.0":
+            break
+
+j = 0
+for i in list:
+    list[j]=i.rstrip("\n")
+    j+=1
+
+print(list)
